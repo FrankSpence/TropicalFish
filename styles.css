@@ -1,0 +1,123 @@
+﻿:root {
+    --primary-color: #4682b4; /* Steel Blue */
+    --secondary-color: #f0f8ff; /* Alice Blue */
+    --text-color: white;
+    --background-color: #f8f8ff; /* Ghost White - slightly different from Alice Blue for subtle background */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color); /* Using CSS variable */
+    color: #333; /* Darker text color for better readability on light background */
+    line-height: 1.6; /* Improved line height for readability */
+}
+
+header {
+    background-color: var(--primary-color); /* Using CSS variable */
+    color: var(--text-color); /* Using CSS variable */
+    text-align: center;
+    padding: 1.5em 0; /* Slightly increased padding */
+}
+
+main {
+    padding: 2em; /* Increased padding in main */
+    display: flex; /* Enable Flexbox for main */
+    flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+    justify-content: center; /* Center sections horizontally */
+}
+
+section {
+    margin: 1em; /* Adjust margin for sections */
+    margin-bottom: 2em;
+    border: 1px solid #ddd; /* Added a subtle border */
+    border-radius: 8px; /* Slightly rounded corners */
+    overflow: hidden; /* To contain the rounded corners and shadows */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    background-color: white; /* Section background white for contrast */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover */
+    cursor: pointer; /* Indicate section is clickable */
+    width: calc(45% - 2em); /* Flex basis for larger screens, with margin adjustment */
+    min-width: 300px; /* Minimum width to prevent sections from becoming too narrow */
+}
+
+    section:hover {
+        transform: scale(1.03); /* Slight scale up on hover */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+    }
+
+
+.fish-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-bottom: 1px solid #eee; /* Separator between image and text */
+    transition: transform 0.4s ease-in-out; /* Smooth transition for image hover */
+}
+
+section:hover .fish-image {
+    transform: scale(1.05); /* Slight image scale up on section hover */
+}
+
+section article {
+    padding: 1em 1.5em; /* Padding inside article for content spacing */
+}
+
+section h2 {
+    margin-top: 0;
+    color: var(--primary-color); /* Section heading color using variable */
+}
+
+.more-info {
+    display: none; /* Initially hide 'more-info' paragraphs */
+    margin-top: 1em;
+    padding-top: 0.5em;
+    border-top: 1px dashed #ccc; /* Dashed line to separate 'more-info' */
+    font-size: 0.9em;
+    color: #555;
+}
+
+
+footer {
+    background-color: var(--primary-color); /* Using CSS variable */
+    color: var(--text-color); /* Using CSS variable */
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (max-width: 768px) { /* Media query for tablets and smaller desktops */
+    main {
+        flex-direction: column; /* Stack sections vertically on smaller screens */
+        align-items: center; /* Center sections when stacked */
+    }
+
+    section {
+        width: 90%; /* Wider sections on smaller screens */
+        max-width: 500px; /* Limit section width on very wide phone screens */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .fish-image {
+        max-width: 100%; /* Ensure images are fully responsive within section */
+    }
+}
+
+@media (max-width: 600px) { /* Existing media query for phones - refined */
+    body {
+        font-size: 1rem; /* Base font size for smaller screens */
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Smaller header font size on phones */
+    }
+
+    section {
+        width: 95%; /* Even wider sections on very small screens */
+    }
+}
